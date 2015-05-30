@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
 
 	def create
 		@space = Space.new(space_params)
+		@space.save_js_time
 		@space.save
 		render json: @space
 	end
