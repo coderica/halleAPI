@@ -10,6 +10,10 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
+gem 'rack-cors', :require => 'rack/cors'
+
+gem 'hirb'
+
 
 
 # To use ActiveModel has_secure_password

@@ -1,11 +1,14 @@
 class SpacesController < ApplicationController
 
 	def index
+		@spaces = Space.all
+		render json: @spaces
 		# filter spaces based on location
 		# display all nearby spaces to user
 	end
 
 	def create
+		
 	end
 
 	def update
