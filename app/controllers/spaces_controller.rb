@@ -2,10 +2,13 @@ class SpacesController < ApplicationController
 
 	def index
 		@spaces = Space.all
-		render json: {spaces: @spaces}
+		render json: @spaces
 	end
 
 	def create
+		@space = Space.new(space_params)
+		@space.save
+		render json: @space
 	end
 
 	def update
@@ -23,4 +26,10 @@ class SpacesController < ApplicationController
 	# INTERNAL PARAMS?
 	# USE MODEL METHOD TO FIND NEARBY SPACES USING PARAMS
 
+
+	private
+
+	def space_params
+		params.require(:space).permit(:latitude, :longitude)
+	end
 end

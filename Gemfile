@@ -7,7 +7,9 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-gem 'sqlite3'
+gem 'pg'
+
+gem 'sqlite3', :group => :development
 
 gem 'rack-cors', :require => 'rack/cors'
 
