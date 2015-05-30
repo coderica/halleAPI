@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529185604) do
+ActiveRecord::Schema.define(version: 20150530221204) do
 
   create_table "spaces", force: :cascade do |t|
     t.decimal  "longitude"
     t.decimal  "latitude"
-    t.boolean  "active",     default: true
+    t.boolean  "active",         default: true
     t.string   "note"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "converted_time"
   end
 
 end
