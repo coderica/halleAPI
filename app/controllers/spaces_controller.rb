@@ -1,7 +1,7 @@
 class SpacesController < ApplicationController
 
 	def index
-		@spaces = Space.where(created_at: 5.minutes.ago..Time.now)
+		@spaces = Space.where(created_at: 90.minutes.ago..Time.now)
 		# @spaces = Space.all
 		# p @spaces
 		render json: @spaces
@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
 
 	def create
 		@space = Space.new(space_params)
+		@space.save_js_time
 		@space.save
 		render json: @space
 	end
