@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20150530215954) do
     t.decimal  "latitude"
     t.boolean  "active",         default: true
     t.string   "note"
-    t.string   "converted_time"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.decimal  "converted_time"
   end
 
 end
