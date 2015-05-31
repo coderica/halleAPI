@@ -1,7 +1,9 @@
 class SpacesController < ApplicationController
 
 	def index
-		@spaces = Space.all
+		@spaces = Space.where(created_at: 90.minutes.ago..Time.now)
+		# @spaces = Space.all
+		# p @spaces
 		render json: @spaces
 		# filter spaces based on location
 		# display all nearby spaces to user
@@ -9,6 +11,7 @@ class SpacesController < ApplicationController
 
 	def create
 		@space = Space.new(space_params)
+		@space.save_js_time
 		@space.save
 		render json: @space
 	end
