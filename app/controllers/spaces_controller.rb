@@ -39,7 +39,7 @@ class SpacesController < ApplicationController
 	private
 
 	def space_params
-		params.require(:space).permit(:latitude, :longitude, :active)
+		params.require(:space).permit(:latitude, :longitude, :active, :note)
 	end
 
 	def allow_cross_domain
