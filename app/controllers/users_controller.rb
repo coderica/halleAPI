@@ -9,8 +9,18 @@ class UsersController < ApplicationController
 		render json: @user
 	end
 
-	# def update
-	# end
+	def update
+		@user = User.where(oauth_id: params[:id]).first
+
+		if user_params[:post]
+			@user.spaces_posted += 1
+		elsif user_params[:consume]
+			@user.spaces_consumed += 1
+		end
+
+		@user.save
+		render json: @user
+	end
 
 	# def destroy
 	# end
@@ -18,7 +28,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:oauth_id)
+		params.require(:user).permit(:oauth_id, :post, :consume)
 	end
 
 	def allow_cross_domain
