@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530215954) do
+ActiveRecord::Schema.define(version: 20150601183118) do
 
   create_table "spaces", force: :cascade do |t|
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.boolean  "active",         default: true
     t.string   "note"
+    t.string   "converted_time"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.decimal  "converted_time"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "oauth_id"
+    t.decimal  "spaces_posted",   default: 5.0
+    t.decimal  "spaces_consumed", default: 0.0
+    t.boolean  "can_consume",     default: true
+    t.string   "home"
+    t.string   "work"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
