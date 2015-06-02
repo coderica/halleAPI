@@ -3,6 +3,9 @@ class SpacesController < ApplicationController
 
 	def index
 		@spaces = Space.where(created_at: 90.minutes.ago..Time.now, active: true)
+		firebase = Firebase::Client.new("https://halle.firebaseio.com")
+		response = firebase.delete("spaces")
+		p response
 		render json: @spaces
 		# filter spaces based on location
 		# display all nearby spaces to user
@@ -12,6 +15,9 @@ class SpacesController < ApplicationController
 		@space = Space.new(space_params)
 		@space.save_js_time
 		@space.save
+		firebase = Firebase::Client.new("https://halle.firebaseio.com")
+		response = firebase.push("spaces", @space.to_json)
+		p response
 		render json: @space
 	end
 

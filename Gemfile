@@ -15,6 +15,8 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem "hirb"
 
+gem "firebase"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
