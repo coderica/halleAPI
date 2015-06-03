@@ -17,7 +17,6 @@ class SpacesController < ApplicationController
 		@space.save
 		firebase = Firebase::Client.new("https://halle.firebaseio.com")
 		response = firebase.push("spaces", @space.to_json)
-		p response
 		render json: @space
 	end
 
@@ -28,14 +27,17 @@ class SpacesController < ApplicationController
 		end
 	end
 
-	# def destroy
-	# 	# destroy bad markers?
-	# end
+	def destroy
+		@space = Space.find(params[:id])
+		if @space
+			@space.destroy
+		end
+	end
 
 	private
 
 	def space_params
-		params.require(:space).permit(:latitude, :longitude, :active, :note)
+		params.require(:space).permit(:latitude, :longitude, :active, :note, :poster_id, :claimer_id)
 	end
 
 	def allow_cross_domain
