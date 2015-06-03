@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20150603170220) do
     t.decimal  "latitude"
     t.boolean  "active",         default: true
     t.string   "note"
-    t.string   "converted_time"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "poster_id"
     t.integer  "claimer_id"
+    t.decimal  "converted_time"
   end
 
   create_table "users", force: :cascade do |t|
