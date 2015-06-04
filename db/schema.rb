@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20150603170220) do
     t.string   "note"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.decimal  "converted_time"
     t.integer  "poster_id"
     t.integer  "claimer_id"
-    t.decimal  "converted_time"
   end
 
   create_table "users", force: :cascade do |t|

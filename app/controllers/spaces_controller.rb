@@ -22,8 +22,15 @@ class SpacesController < ApplicationController
 
 	def update
 		@space = Space.find(params[:id])
-		if @space.toggle!(:active)
-			render json: @space
+		if space_params
+			@space.update(
+				latitude: space_params[:latitude],
+				longitude: space_params[:longitude]
+			)
+		else
+			if @space.toggle!(:active)
+				render json: @space
+			end
 		end
 	end
 
