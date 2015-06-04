@@ -22,7 +22,9 @@ class SpacesController < ApplicationController
 
 	def update
 		@space = Space.find(params[:id])
-		if space_params
+		p params
+		if space_params[:change_location] == "true"
+			p "changing location"
 			@space.update(
 				latitude: space_params[:latitude],
 				longitude: space_params[:longitude]
@@ -44,7 +46,7 @@ class SpacesController < ApplicationController
 	private
 
 	def space_params
-		params.require(:space).permit(:latitude, :longitude, :active, :note, :poster_id, :claimer_id)
+		params.require(:space).permit(:latitude, :longitude, :active, :note, :poster_id, :claimer_id, :change_location)
 	end
 
 	def allow_cross_domain
