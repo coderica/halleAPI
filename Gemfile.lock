@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     builder (3.2.2)
+    concurrent-ruby (1.1.10)
     erubis (2.7.0)
     firebase (0.2.4)
       httpclient
@@ -46,7 +47,8 @@ GEM
       activesupport (>= 4.1.0)
     hirb (0.7.3)
     httpclient (2.6.0.1)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     json (1.8.2)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
